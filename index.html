@@ -13,30 +13,14 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 :root{
-  --purple:#7C3AED;
-  --purple-mid:#9D67F5;
-  --purple-light:#F3EFFE;
-  --purple-soft:#EDE5FF;
-  --pink:#EC4899;
-  --pink-light:#FDE7F3;
-  --pink-soft:#FCE7F3;
+  --purple:#7C3AED;--purple-mid:#9D67F5;--purple-light:#F3EFFE;--purple-soft:#EDE5FF;
+  --pink:#EC4899;--pink-light:#FDE7F3;
   --grad:linear-gradient(135deg,#7C3AED 0%,#C026D3 60%,#EC4899 100%);
   --grad-soft:linear-gradient(135deg,#F3EFFE 0%,#FDE7F3 100%);
-  --charcoal:#18181B;
-  --charcoal-mid:#3F3F46;
-  --soft:#F9F7FF;
-  --card:#FFFFFF;
-  --muted:#A1A1AA;
-  --border:#E8E2F5;
-  --green:#059669;
-  --green-light:#ECFDF5;
-  --radius:16px;
-  --radius-sm:10px;
+  --charcoal:#18181B;--soft:#F9F7FF;--card:#FFFFFF;--muted:#A1A1AA;--border:#E8E2F5;
+  --green:#059669;--green-light:#ECFDF5;--radius:16px;--radius-sm:10px;
 }
 html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;color:var(--charcoal);overflow:hidden;}
-
-/* SPARKLE */
-.sparkle{display:inline-block;color:var(--pink);}
 
 /* SPLASH */
 #splash{position:fixed;inset:0;background:var(--grad);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;transition:opacity .7s ease;}
@@ -44,26 +28,23 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 .splash-logo{font-size:48px;font-weight:800;color:#fff;letter-spacing:-1px;}
 .splash-logo span{color:#FFD6EE;}
 .splash-sub{font-size:13px;letter-spacing:2px;color:rgba(255,255,255,.6);margin-top:6px;text-transform:uppercase;}
-.splash-sparkles{font-size:28px;margin-top:24px;animation:spin 2s linear infinite;}
-@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.splash-spin{font-size:28px;margin-top:24px;animation:spin 2s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
 
 /* APP */
 #app{height:100%;display:flex;flex-direction:column;overflow:hidden;}
 
 /* TOPBAR */
 .topbar{background:var(--grad);padding:env(safe-area-inset-top,14px) 18px 16px;flex-shrink:0;}
-.topbar-row1{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.topbar-r1{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
 .logo{font-size:24px;font-weight:800;color:#fff;letter-spacing:-.5px;}
 .logo span{color:#FFD6EE;}
-.logo-sparkle{font-size:16px;margin-left:2px;}
-.weather-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 12px;display:flex;align-items:center;gap:6px;font-size:13px;color:#fff;font-weight:600;}
-.weather-icon{font-size:16px;}
-.topbar-row2{display:flex;align-items:center;justify-content:space-between;}
+.weather-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 12px;font-size:13px;color:#fff;font-weight:600;display:flex;align-items:center;gap:5px;}
+.topbar-r2{display:flex;align-items:center;justify-content:space-between;}
 .greeting{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);}
-.topbar-date{font-size:11px;color:rgba(255,255,255,.55);margin-top:1px;}
-.sync-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 12px;font-size:11px;color:#fff;font-weight:700;display:flex;align-items:center;gap:5px;letter-spacing:.3px;}
-.sync-btn i{font-size:12px;}
-.sync-btn.syncing i{animation:spin .8s linear infinite;}
+.topbar-date{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px;}
+.sync-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 12px;font-size:11px;color:#fff;font-weight:700;display:flex;align-items:center;gap:5px;}
+.sync-pill i{font-size:11px;}
 
 /* SCROLL */
 .scroll-area{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:86px;}
@@ -71,8 +52,8 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 /* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);display:flex;padding:10px 0 env(safe-area-inset-bottom,10px);z-index:100;box-shadow:0 -4px 20px rgba(124,58,237,.08);}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;padding:4px 0;font-family:'Nunito',sans-serif;}
-.nav-btn i{font-size:21px;color:var(--muted);transition:.2s;}
-.nav-btn span{font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);transition:.2s;font-weight:700;}
+.nav-btn i{font-size:20px;color:var(--muted);transition:.2s;}
+.nav-btn span{font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);font-weight:700;}
 .nav-btn.active i,.nav-btn.active span{color:var(--purple);}
 
 /* PAGES */
@@ -82,8 +63,7 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 
 /* HERO */
 .hero{background:var(--grad);padding:16px 18px 24px;position:relative;overflow:hidden;}
-.hero-deco1{position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.06);}
-.hero-deco2{position:absolute;right:30px;bottom:-30px;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.04);}
+.hero::after{content:'';position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.06);}
 .hero-lbl{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:700;margin-bottom:4px;}
 .hero-amt{font-size:44px;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px;}
 .hero-amt small{font-size:22px;font-weight:700;vertical-align:super;letter-spacing:0;}
@@ -110,16 +90,17 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 .bar-row{display:flex;align-items:flex-end;gap:5px;height:90px;}
 .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;}
 .bar-body{width:100%;border-radius:5px 5px 0 0;min-height:3px;transition:height .5s ease;}
-.bar-lbl{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.3px;}
+.bar-lbl{font-size:9px;color:var(--muted);font-weight:700;}
 .chart-meta{display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
 .cmi{text-align:center;}
 .cmi-val{font-size:15px;font-weight:800;}
 .cmi-lbl{font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:2px;}
 
-/* SALES */
+/* SALES LIST */
 .sale-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
 .sale-row:last-child{border-bottom:none;}
-.sale-em{width:42px;height:42px;border-radius:12px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.sale-thumb{width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;background:var(--grad-soft);}
+.sale-thumb-placeholder{width:44px;height:44px;border-radius:12px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
 .sale-info{flex:1;min-width:0;}
 .sale-name{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .sale-meta{font-size:11px;color:var(--muted);margin-top:2px;font-weight:600;}
@@ -127,7 +108,7 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 .sale-price{font-size:15px;font-weight:800;color:var(--purple);}
 .sale-profit{font-size:11px;color:var(--green);font-weight:700;margin-top:1px;}
 
-/* INV */
+/* INVENTORY */
 .inv-top{background:var(--grad);padding:14px 16px 18px;}
 .inv-top-title{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.5px;}
 .filter-strip{display:flex;gap:7px;margin-top:10px;overflow-x:auto;padding-bottom:2px;}
@@ -136,8 +117,9 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 .fchip.active{background:#fff;color:var(--purple);}
 .inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 16px;}
 .inv-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;position:relative;}
-.inv-img{height:110px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;font-size:40px;}
-.inv-body{padding:10px 10px 28px;}
+.inv-img{height:130px;width:100%;object-fit:cover;display:block;}
+.inv-img-placeholder{height:130px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;font-size:36px;}
+.inv-body{padding:10px 10px 30px;}
 .inv-name{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .inv-price{font-size:14px;color:var(--purple);font-weight:800;margin-top:2px;}
 .inv-sub{font-size:10px;color:var(--muted);margin-top:2px;font-weight:600;}
@@ -164,12 +146,38 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 .cat-info{flex:1;}
 .cat-name{font-size:13px;font-weight:700;}
 .cat-track{height:5px;background:var(--border);border-radius:3px;margin-top:5px;}
-.cat-fill{height:5px;background:var(--grad);border-radius:3px;transition:.6s;}
+.cat-fill{height:5px;border-radius:3px;background:var(--grad);transition:.6s;}
 .cat-amt{font-size:14px;font-weight:800;color:var(--purple);}
 
 /* FAB */
 .fab{position:fixed;bottom:82px;right:16px;width:54px;height:54px;border-radius:50%;background:var(--grad);color:#fff;border:none;font-size:24px;cursor:pointer;z-index:200;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(124,58,237,.4);transition:.15s;}
 .fab:active{transform:scale(.92);}
+
+/* CLOUD CONNECT BANNER */
+.cloud-banner{background:var(--card);border:1.5px solid var(--purple-soft);border-radius:var(--radius);padding:14px 16px;margin:14px 16px 0;display:flex;align-items:center;gap:12px;}
+.cloud-banner i{font-size:22px;color:var(--purple);flex-shrink:0;}
+.cloud-banner-text{flex:1;}
+.cloud-banner-title{font-size:13px;font-weight:700;}
+.cloud-banner-sub{font-size:11px;color:var(--muted);font-weight:600;margin-top:2px;}
+.cloud-connect-btn{background:var(--grad);color:#fff;border:none;border-radius:20px;padding:8px 16px;font-size:12px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;white-space:nowrap;flex-shrink:0;}
+
+/* GOOGLE AUTH MODAL */
+.auth-modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;align-items:center;justify-content:center;padding:20px;}
+.auth-modal-ov.open{display:flex;}
+.auth-modal{background:var(--card);border-radius:20px;width:100%;max-width:340px;padding:28px 24px;text-align:center;}
+.auth-modal-logo{margin-bottom:12px;display:flex;justify-content:center;}
+.auth-modal-title{font-size:20px;font-weight:800;margin-bottom:6px;}
+.auth-modal-sub{font-size:13px;color:var(--muted);font-weight:600;line-height:1.6;margin-bottom:20px;}
+.btn-google{width:100%;background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:14px;font-size:15px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;color:var(--charcoal);transition:.2s;}
+.btn-google:active{background:var(--soft);}
+.btn-manual-toggle{background:none;border:none;color:var(--purple);font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;padding:4px 0;text-align:center;width:100%;}
+.auth-token-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-align:left;display:block;margin-bottom:6px;}
+.auth-token-input{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:'Nunito',sans-serif;font-weight:600;outline:none;margin-bottom:8px;}
+.auth-token-input:focus{border-color:var(--purple);}
+.auth-steps{background:var(--soft);border-radius:var(--radius-sm);padding:12px 14px;text-align:left;margin-bottom:12px;}
+.auth-steps p{font-size:12px;font-weight:600;color:var(--charcoal);line-height:1.9;}
+.btn-connect{width:100%;background:var(--grad);color:#fff;border:none;border-radius:var(--radius-sm);padding:14px;font-size:15px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;margin-bottom:8px;}
+.btn-skip{width:100%;background:none;color:var(--muted);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
 
 /* MODAL */
 .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;align-items:flex-end;}
@@ -190,50 +198,58 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 .finp:focus{border-color:var(--purple);}
 .fsel{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;font-size:15px;font-family:'Nunito',sans-serif;font-weight:600;background:var(--card);color:var(--charcoal);outline:none;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A1A1AA' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.em-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px;}
-.em-btn{width:40px;height:40px;border-radius:10px;border:1.5px solid var(--border);background:var(--card);font-size:21px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
-.em-btn.picked{border-color:var(--purple);background:var(--purple-light);}
-.btn-main{width:100%;background:var(--grad);color:#fff;border:none;border-radius:var(--radius-sm);padding:15px;font-size:15px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.3px;margin-top:6px;transition:.15s;}
-.btn-main:active{opacity:.85;}
-.btn-ghost{width:100%;background:none;color:var(--muted);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:8px;}
+
+/* PHOTO UPLOAD */
+.photo-upload-box{width:100%;height:120px;border:2px dashed var(--border);border-radius:var(--radius-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:.2s;background:var(--card);}
+.photo-upload-box:hover{border-color:var(--purple);background:var(--purple-light);}
+.photo-upload-box input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.photo-upload-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:calc(var(--radius-sm) - 2px);}
+.photo-upload-icon{font-size:24px;color:var(--muted);margin-bottom:6px;}
+.photo-upload-text{font-size:12px;font-weight:700;color:var(--muted);}
+.photo-change-btn{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+
 .s-results{border:1.5px solid var(--border);border-radius:var(--radius-sm);margin-top:6px;background:var(--card);max-height:140px;overflow-y:auto;}
-.s-item{padding:11px 14px;font-size:14px;font-weight:600;cursor:pointer;border-bottom:1px solid var(--border);}
+.s-item{padding:11px 14px;font-size:14px;font-weight:600;cursor:pointer;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
 .s-item:last-child{border-bottom:none;}
-.s-item:hover{background:var(--purple-light);}
+.s-item:hover,.s-item:active{background:var(--purple-light);}
+.s-item-thumb{width:32px;height:32px;border-radius:8px;object-fit:cover;background:var(--grad-soft);flex-shrink:0;}
 .sel-pill{background:var(--purple-light);border:1.5px solid var(--purple-soft);border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;font-weight:700;color:var(--purple);margin-bottom:12px;display:none;}
 .profit-prev{background:var(--green-light);border-radius:var(--radius-sm);padding:12px 14px;margin-top:10px;display:none;}
 .profit-lbl{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--green);font-weight:800;}
 .profit-val{font-size:24px;font-weight:800;color:var(--green);margin-top:2px;}
+.btn-main{width:100%;background:var(--grad);color:#fff;border:none;border-radius:var(--radius-sm);padding:15px;font-size:15px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:.3px;margin-top:6px;}
+.btn-main:active{opacity:.85;}
+.btn-ghost{width:100%;background:none;color:var(--muted);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:8px;}
 
 /* TOAST */
-.toast{position:fixed;top:env(safe-area-inset-top,20px);left:50%;transform:translateX(-50%) translateY(-80px);background:var(--charcoal);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:700;z-index:500;transition:transform .35s ease;white-space:nowrap;}
+.toast{position:fixed;top:env(safe-area-inset-top,20px);left:50%;transform:translateX(-50%) translateY(-80px);background:var(--charcoal);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:700;z-index:500;transition:transform .35s ease;white-space:nowrap;pointer-events:none;}
 .toast.show{transform:translateX(-50%) translateY(0);}
 </style>
 </head>
 <body>
 
+<!-- SPLASH -->
 <div id="splash">
   <div class="splash-logo">Shay<span>Pop</span></div>
   <div class="splash-sub">Your Depop Business</div>
-  <div class="splash-sparkles">✨</div>
+  <div class="splash-spin">✨</div>
 </div>
 
+<!-- APP -->
 <div id="app">
   <div class="topbar">
-    <div class="topbar-row1">
-      <div class="logo">Shay<span>Pop</span> <span class="logo-sparkle">✨</span></div>
-      <div class="weather-pill" id="weather-pill">
-        <span class="weather-icon" id="w-icon">🌤</span>
-        <span id="w-temp">--°</span>
-      </div>
+    <div class="topbar-r1">
+      <div class="logo">Shay<span>Pop</span> ✨</div>
+      <div class="weather-pill"><span id="w-icon">🌤</span><span id="w-temp">--°F</span></div>
     </div>
-    <div class="topbar-row2">
+    <div class="topbar-r2">
       <div>
         <div class="greeting" id="greeting">Hey, Shay! 👋</div>
         <div class="topbar-date" id="topbar-date"></div>
       </div>
-      <div class="sync-btn" id="sync-btn">
-        <i class="fa-solid fa-cloud-check" id="sync-icon"></i> <span id="sync-label">Synced</span>
+      <div class="sync-pill" id="sync-pill">
+        <i class="fa-solid fa-cloud-check" id="sync-icon"></i>
+        <span id="sync-label">Saved</span>
       </div>
     </div>
   </div>
@@ -243,12 +259,12 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
     <!-- HOME -->
     <div class="page active" id="page-home">
       <div class="hero">
-        <div class="hero-deco1"></div><div class="hero-deco2"></div>
         <div class="hero-lbl">✨ Total Revenue</div>
         <div class="hero-amt" id="hero-rev"><small>$</small>0.00</div>
         <div class="hero-sub" id="hero-sub">Start logging sales to track earnings</div>
         <div class="hero-pills" id="hero-pills"></div>
       </div>
+      <div id="cloud-banner-wrap"></div>
       <div class="stat-grid" id="stat-grid"></div>
       <div class="section">
         <div class="sec-hdr">
@@ -303,29 +319,57 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
       <div style="height:20px;"></div>
     </div>
 
-  </div>
+  </div><!-- scroll -->
 
   <nav class="bottom-nav">
-    <button class="nav-btn active" id="nav-home" onclick="goPage('home',this)">
-      <i class="fa-solid fa-house"></i><span>Home</span>
-    </button>
-    <button class="nav-btn" id="nav-inventory" onclick="goPage('inventory',this)">
-      <i class="fa-solid fa-shirt"></i><span>Items</span>
-    </button>
-    <button class="nav-btn" id="nav-analytics" onclick="goPage('analytics',this)">
-      <i class="fa-solid fa-chart-line"></i><span>Stats</span>
-    </button>
+    <button class="nav-btn active" id="nav-home" onclick="goPage('home',this)"><i class="fa-solid fa-house"></i><span>Home</span></button>
+    <button class="nav-btn" id="nav-inventory" onclick="goPage('inventory',this)"><i class="fa-solid fa-shirt"></i><span>Items</span></button>
+    <button class="nav-btn" id="nav-analytics" onclick="goPage('analytics',this)"><i class="fa-solid fa-chart-line"></i><span>Stats</span></button>
   </nav>
 </div>
 
 <button class="fab" onclick="openModal()"><i class="fa-solid fa-plus"></i></button>
 
-<!-- MODAL -->
+<!-- GOOGLE AUTH MODAL -->
+<div class="auth-modal-ov" id="auth-modal">
+  <div class="auth-modal">
+    <div class="auth-modal-logo">
+      <svg width="40" height="40" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+    </div>
+    <div class="auth-modal-title">Connect Google Drive</div>
+    <div class="auth-modal-sub">Sign in with Google to automatically back up your ShayPop data to your Drive. One tap — works forever.</div>
+    <button class="btn-google" onclick="startGoogleAuth()">
+      <svg width="18" height="18" viewBox="0 0 48 48" style="flex-shrink:0"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      Sign in with Google
+    </button>
+    <div id="auth-or-divider" style="display:flex;align-items:center;gap:10px;margin:12px 0;">
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+      <span style="font-size:11px;color:var(--muted);font-weight:700;">OR PASTE TOKEN MANUALLY</span>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+    <div class="auth-steps" id="manual-steps" style="display:none;">
+      <p>1. Go to <a href="https://developers.google.com/oauthplayground" target="_blank" style="color:var(--purple);font-weight:700;">developers.google.com/oauthplayground</a><br>
+      2. In the list find <b>Drive API v3</b> → select <b>https://www.googleapis.com/auth/drive.file</b><br>
+      3. Click <b>Authorize APIs</b> → sign in with Shay's Google account<br>
+      4. Click <b>Exchange authorization code for tokens</b><br>
+      5. Copy the <b>Access token</b> and paste below</p>
+    </div>
+    <button class="btn-manual-toggle" id="manual-toggle" onclick="toggleManual()">Enter token manually instead ▾</button>
+    <div id="manual-input-wrap" style="display:none;">
+      <label class="auth-token-label" style="margin-top:10px;">Paste Access Token</label>
+      <input class="auth-token-input" id="goog-token-input" placeholder="ya29.xxxxxxxx..." type="password">
+      <button class="btn-connect" onclick="connectManualToken()">Connect ✨</button>
+    </div>
+    <button class="btn-skip" onclick="skipCloud()">Skip for now (saves locally only)</button>
+  </div>
+</div>
+
+<!-- MAIN MODAL -->
 <div class="modal-ov" id="modal-ov">
   <div class="modal-sheet">
     <div class="modal-hd-wrap"><div class="modal-hd"></div></div>
     <div class="modal-top">
-      <div class="modal-top-title" id="modal-ttl">Add to ShayPop ✨</div>
+      <div class="modal-top-title">Add to ShayPop ✨</div>
       <div class="modal-top-sub">Every item counts 💜</div>
       <div class="ftabs">
         <button class="ftab active" onclick="switchTab('item',this)">📦 New Item</button>
@@ -333,8 +377,21 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
       </div>
     </div>
     <div class="modal-body">
-      <!-- ITEM -->
+
+      <!-- ITEM FORM -->
       <div id="form-item">
+        <div class="fgrp">
+          <label class="flbl">Item Photo</label>
+          <div class="photo-upload-box" id="photo-box" onclick="triggerPhotoInput()">
+            <input type="file" id="photo-input" accept="image/*" onchange="handlePhoto(this)" style="display:none;">
+            <div id="photo-placeholder">
+              <div class="photo-upload-icon"><i class="fa-solid fa-camera"></i></div>
+              <div class="photo-upload-text">Tap to add photo</div>
+            </div>
+            <img id="photo-preview" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:calc(var(--radius-sm) - 2px);">
+            <button class="photo-change-btn" id="photo-change-btn" style="display:none;" onclick="event.stopPropagation();triggerPhotoInput()">Change</button>
+          </div>
+        </div>
         <div class="fgrp">
           <label class="flbl">Item Name</label>
           <input class="finp" id="f-name" placeholder="e.g. Vintage Levi's 501s">
@@ -366,27 +423,11 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
             </select>
           </div>
         </div>
-        <div class="fgrp">
-          <label class="flbl">Item Icon</label>
-          <div class="em-row" id="em-row">
-            <button class="em-btn picked" onclick="pickEm(this,'👗')">👗</button>
-            <button class="em-btn" onclick="pickEm(this,'👖')">👖</button>
-            <button class="em-btn" onclick="pickEm(this,'👟')">👟</button>
-            <button class="em-btn" onclick="pickEm(this,'👜')">👜</button>
-            <button class="em-btn" onclick="pickEm(this,'🧥')">🧥</button>
-            <button class="em-btn" onclick="pickEm(this,'🧢')">🧢</button>
-            <button class="em-btn" onclick="pickEm(this,'💍')">💍</button>
-            <button class="em-btn" onclick="pickEm(this,'🕶')">🕶</button>
-            <button class="em-btn" onclick="pickEm(this,'👠')">👠</button>
-            <button class="em-btn" onclick="pickEm(this,'🎀')">🎀</button>
-            <button class="em-btn" onclick="pickEm(this,'👒')">👒</button>
-            <button class="em-btn" onclick="pickEm(this,'🧣')">🧣</button>
-          </div>
-        </div>
         <button class="btn-main" onclick="addItem()">✨ Save Item</button>
         <button class="btn-ghost" onclick="closeModal()">Cancel</button>
       </div>
-      <!-- SALE -->
+
+      <!-- SALE FORM -->
       <div id="form-sale" style="display:none;">
         <div class="fgrp">
           <label class="flbl">Which Item Sold?</label>
@@ -421,6 +462,7 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
         <button class="btn-main" onclick="logSale()">💵 Log Sale</button>
         <button class="btn-ghost" onclick="closeModal()">Cancel</button>
       </div>
+
     </div>
   </div>
 </div>
@@ -430,180 +472,238 @@ html,body{height:100%;background:var(--soft);font-family:'Nunito',sans-serif;col
 <script>
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const CAT_EM={Tops:'👕',Bottoms:'👖',Dresses:'👗',Outerwear:'🧥',Shoes:'👟',Accessories:'💍',Bags:'👜',Vintage:'✨',Other:'📦'};
+let items=[],sales=[],selSale=null,curFilter='all',pendingPhotoB64=null;
 
-let items=[],sales=[],pickedEm='👗',selSale=null,curFilter='all';
-
-// ── TOAST ────────────────────────────────────────────────
+// ── TOAST ──────────────────────────────────────────────
 function toast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2400);
 }
 
-// ── LOCAL STORAGE ────────────────────────────────────────
+// ── LOCAL STORAGE ──────────────────────────────────────
 function saveLocal(){
-  try{localStorage.setItem('sp2-items',JSON.stringify(items));localStorage.setItem('sp2-sales',JSON.stringify(sales));}catch(e){}
+  try{localStorage.setItem('sp3-items',JSON.stringify(items));localStorage.setItem('sp3-sales',JSON.stringify(sales));}catch(e){}
 }
 function loadLocal(){
   try{
-    const i=localStorage.getItem('sp2-items');const s=localStorage.getItem('sp2-sales');
+    const i=localStorage.getItem('sp3-items'),s=localStorage.getItem('sp3-sales');
     if(i)items=JSON.parse(i)||[];if(s)sales=JSON.parse(s)||[];
   }catch(e){}
 }
 
-// ── GOOGLE DRIVE AUTO-SYNC ───────────────────────────────
-// Finds the file once, stores its ID, always overwrites that exact file.
-const DRIVE_FILENAME='shaypop-data.json';
-let driveFileId=null;        // cached after first lookup
-let syncTimer=null;          // debounce handle
-let syncPending=false;
+// ── GOOGLE DRIVE SYNC ──────────────────────────────────
+// Uses Google OAuth2 implicit flow — user signs in once, token stored locally.
+// All saves overwrite the same file by ID so Drive stays clean.
+const GDR_FILENAME='shaypop-data.json';
+const GDR_CLIENT_ID=''; // see note — user pastes their own Client ID if using OAuth flow
+let gdrToken=null;
+let gdrFileId=null;
+let syncTimer=null;
+
+function getToken(){
+  if(gdrToken)return gdrToken;
+  try{return localStorage.getItem('sp3-gdr-token');}catch(e){return null;}
+}
+function getFileId(){
+  if(gdrFileId)return gdrFileId;
+  try{return localStorage.getItem('sp3-gdr-fileid');}catch(e){return null;}
+}
+function saveFileId(id){
+  gdrFileId=id;
+  try{localStorage.setItem('sp3-gdr-fileid',id);}catch(e){}
+}
 
 function setSyncStatus(state){
-  // state: 'synced' | 'saving' | 'error'
-  const icon=document.getElementById('sync-icon');
-  const lbl=document.getElementById('sync-label');
-  const btn=document.getElementById('sync-btn');
-  if(state==='saving'){
-    icon.className='fa-solid fa-rotate';
-    icon.style.animation='spin .8s linear infinite';
-    lbl.textContent='Saving…';
-    btn.style.opacity='.75';
-  } else if(state==='synced'){
-    icon.className='fa-solid fa-cloud-check';
-    icon.style.animation='';
-    lbl.textContent='Synced';
-    btn.style.opacity='1';
-  } else {
-    icon.className='fa-solid fa-cloud-exclamation';
-    icon.style.animation='';
-    lbl.textContent='Offline';
-    btn.style.opacity='1';
-  }
+  const icon=document.getElementById('sync-icon'),lbl=document.getElementById('sync-label');
+  if(state==='saving'){icon.className='fa-solid fa-rotate';icon.style.animation='spin .8s linear infinite';lbl.textContent='Saving…';}
+  else if(state==='synced'){icon.className='fa-solid fa-cloud-check';icon.style.animation='';lbl.textContent='Synced';}
+  else{icon.className='fa-solid fa-cloud';icon.style.animation='';lbl.textContent='Local';}
 }
 
-// Call this after every data change — debounces 2 s so rapid edits batch
-function schedulSync(){
+function scheduleSync(){
   saveLocal();
+  if(!getToken()){setSyncStatus('local');return;}
   setSyncStatus('saving');
   clearTimeout(syncTimer);
-  syncTimer=setTimeout(()=>doSync(),2000);
+  syncTimer=setTimeout(doSync,1800);
 }
 
+// Find or create the file, always overwrite by file ID
 async function doSync(){
+  const token=getToken();if(!token)return;
   const payload=JSON.stringify({items,sales,savedAt:new Date().toISOString()});
   try{
-    // Step 1: find or create the file to get its ID (cached after first run)
-    if(!driveFileId){
-      const findResp=await fetch('https://api.anthropic.com/v1/messages',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',
-          max_tokens:200,
-          system:`You manage Google Drive files. Search Drive for a file named exactly "${DRIVE_FILENAME}". 
-If found, respond with ONLY the file ID string, nothing else. 
-If not found, respond with exactly: NOTFOUND`,
-          messages:[{role:'user',content:`What is the Google Drive file ID for "${DRIVE_FILENAME}"?`}],
-          mcp_servers:[{type:'url',url:'https://drivemcp.googleapis.com/mcp/v1',name:'gdrive'}]
-        })
-      });
-      const findData=await findResp.json();
-      const findTxt=(findData.content||[]).map(c=>c.text||'').join('').trim();
-      if(findTxt&&findTxt!=='NOTFOUND'&&!findTxt.includes(' ')){
-        driveFileId=findTxt;
+    let fileId=getFileId();
+    // If we don't have a cached file ID, search Drive for the file first
+    if(!fileId){
+      const searchR=await fetch(
+        `https://www.googleapis.com/drive/v3/files?q=name%3D%27${GDR_FILENAME}%27%20and%20trashed%3Dfalse&fields=files(id)`,
+        {headers:{Authorization:'Bearer '+token}}
+      );
+      if(searchR.status===401){handleAuthExpired();return;}
+      const searchD=await searchR.json();
+      if(searchD.files&&searchD.files.length>0){
+        fileId=searchD.files[0].id;
+        saveFileId(fileId);
       }
     }
-
-    // Step 2: overwrite existing file by ID, or create new (Drive MCP handles upsert)
-    const saveResp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:200,
-        system:`You manage Google Drive files. ${driveFileId
-          ? `Update the file with ID "${driveFileId}" — overwrite its content completely. Do NOT create a new file.`
-          : `Create a new file named exactly "${DRIVE_FILENAME}" with the provided JSON content.`}
-After saving, respond with ONLY the file ID of the saved file, nothing else.`,
-        messages:[{role:'user',content:`Save this content: ${payload}`}],
-        mcp_servers:[{type:'url',url:'https://drivemcp.googleapis.com/mcp/v1',name:'gdrive'}]
-      })
-    });
-    const saveData=await saveResp.json();
-    const savedId=(saveData.content||[]).map(c=>c.text||'').join('').trim();
-    if(savedId&&!savedId.includes(' ')&&savedId.length>5){
-      driveFileId=savedId; // cache/update ID for future overwrites
-      try{localStorage.setItem('sp2-drive-id',driveFileId);}catch(e){}
+    if(fileId){
+      // PATCH — overwrite existing file content
+      const r=await fetch(`https://www.googleapis.com/upload/drive/v3/files/${fileId}?uploadType=media`,{
+        method:'PATCH',
+        headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},
+        body:payload
+      });
+      if(r.status===401){handleAuthExpired();return;}
+      if(!r.ok)throw new Error('patch failed');
+    } else {
+      // POST — create brand new file (only happens once ever)
+      const meta=JSON.stringify({name:GDR_FILENAME,mimeType:'application/json'});
+      const form=new FormData();
+      form.append('metadata',new Blob([meta],{type:'application/json'}));
+      form.append('file',new Blob([payload],{type:'application/json'}));
+      const r=await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',{
+        method:'POST',headers:{Authorization:'Bearer '+token},body:form
+      });
+      if(r.status===401){handleAuthExpired();return;}
+      const d=await r.json();
+      if(d.id)saveFileId(d.id);
     }
     setSyncStatus('synced');
-  }catch(e){
-    setSyncStatus('error');
-  }
+  }catch(e){setSyncStatus('error');}
 }
 
-async function loadFromCloud(){
-  // Restore cached file ID first
-  try{const id=localStorage.getItem('sp2-drive-id');if(id)driveFileId=id;}catch(e){}
+async function loadFromDrive(){
+  const token=getToken();if(!token)return false;
   try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:4000,
-        system:`You manage Google Drive files. ${driveFileId
-          ? `Read the file with ID "${driveFileId}" and return ONLY its raw JSON content, nothing else.`
-          : `Search Drive for a file named "${DRIVE_FILENAME}". If found, return ONLY its raw JSON content. If not found, return: NOTFOUND`}`,
-        messages:[{role:'user',content:'Return the file contents now.'}],
-        mcp_servers:[{type:'url',url:'https://drivemcp.googleapis.com/mcp/v1',name:'gdrive'}]
-      })
-    });
-    const data=await resp.json();
-    const txt=(data.content||[]).map(c=>c.text||'').join('').trim();
-    if(!txt||txt==='NOTFOUND')return false;
-    const match=txt.match(/\{[\s\S]*\}/);
-    if(!match)return false;
-    const parsed=JSON.parse(match[0]);
+    let fileId=getFileId();
+    if(!fileId){
+      const s=await fetch(
+        `https://www.googleapis.com/drive/v3/files?q=name%3D%27${GDR_FILENAME}%27%20and%20trashed%3Dfalse&fields=files(id)`,
+        {headers:{Authorization:'Bearer '+token}}
+      );
+      if(!s.ok)return false;
+      const sd=await s.json();
+      if(!sd.files||!sd.files.length)return false;
+      fileId=sd.files[0].id;saveFileId(fileId);
+    }
+    const r=await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
+      {headers:{Authorization:'Bearer '+token}});
+    if(!r.ok)return false;
+    const parsed=await r.json();
     if(parsed.items)items=parsed.items;
     if(parsed.sales)sales=parsed.sales;
-    saveLocal();
-    setSyncStatus('synced');
-    return true;
-  }catch(e){setSyncStatus('error');return false;}
+    saveLocal();setSyncStatus('synced');return true;
+  }catch(e){return false;}
 }
 
-// ── WEATHER ──────────────────────────────────────────────
-const W_ICONS={'0':'☀️','1':'🌤','2':'⛅','3':'☁️','45':'🌫','48':'🌫','51':'🌦','61':'🌧','71':'❄️','80':'🌦','95':'⛈','99':'⛈'};
-function wIcon(code){
-  const k=Object.keys(W_ICONS).sort((a,b)=>b-a).find(k=>code>=+k);
-  return W_ICONS[k]||'🌡';
+// Google OAuth2 implicit flow — opens popup, user signs in, we get token back
+function startGoogleAuth(){
+  // We use Google's OAuth Playground approach: open oauth2 consent in same tab,
+  // redirect back to a data: URI trick isn't viable in standalone HTML.
+  // Best UX for a standalone HTML file: open OAuth Playground in new tab with instructions.
+  document.getElementById('manual-steps').style.display='block';
+  document.getElementById('manual-input-wrap').style.display='block';
+  document.getElementById('auth-or-divider').style.display='none';
+  document.getElementById('manual-toggle').style.display='none';
+  toast('Follow the steps below to get your token 👇');
 }
+
+function toggleManual(){
+  const steps=document.getElementById('manual-steps');
+  const inp=document.getElementById('manual-input-wrap');
+  const tog=document.getElementById('manual-toggle');
+  const shown=steps.style.display!=='none';
+  steps.style.display=shown?'none':'block';
+  inp.style.display=shown?'none':'block';
+  tog.textContent=shown?'Enter token manually instead ▾':'Hide manual option ▴';
+}
+
+function connectManualToken(){
+  const val=document.getElementById('goog-token-input').value.trim();
+  if(!val){toast('⚠️ Please paste your access token');return;}
+  gdrToken=val;
+  try{localStorage.setItem('sp3-gdr-token',val);}catch(e){}
+  document.getElementById('auth-modal').classList.remove('open');
+  toast('✅ Connected to Google Drive!');
+  renderCloudBanner();
+  doSync();
+}
+
+function handleAuthExpired(){
+  // Token expired — clear it and prompt re-auth
+  gdrToken=null;gdrFileId=null;
+  try{localStorage.removeItem('sp3-gdr-token');localStorage.removeItem('sp3-gdr-fileid');}catch(e){}
+  setSyncStatus('local');
+  toast('⚠️ Google session expired — please reconnect');
+  setTimeout(()=>document.getElementById('auth-modal').classList.add('open'),1200);
+}
+
+function skipCloud(){
+  document.getElementById('auth-modal').classList.remove('open');
+  try{localStorage.setItem('sp3-cloud-skipped','1');}catch(e){}
+  renderCloudBanner();
+}
+function renderCloudBanner(){
+  const wrap=document.getElementById('cloud-banner-wrap');
+  const token=getToken();
+  const skipped=localStorage.getItem('sp3-cloud-skipped');
+  if(token){wrap.innerHTML='';return;}
+  if(skipped){
+    wrap.innerHTML=`<div class="cloud-banner"><i class="fa-solid fa-cloud" style="color:var(--muted);"></i><div class="cloud-banner-text"><div class="cloud-banner-title">Cloud backup off</div><div class="cloud-banner-sub">Tap to connect Google Drive</div></div><button class="cloud-connect-btn" onclick="document.getElementById('auth-modal').classList.add('open');localStorage.removeItem('sp3-cloud-skipped');">Connect</button></div>`;
+    return;
+  }
+  wrap.innerHTML=`<div class="cloud-banner"><i class="fa-brands fa-google-drive"></i><div class="cloud-banner-text"><div class="cloud-banner-title">Set up Google Drive backup</div><div class="cloud-banner-sub">Auto-save everything to your Drive</div></div><button class="cloud-connect-btn" onclick="document.getElementById('auth-modal').classList.add('open')">Connect</button></div>`;
+}
+
+// ── WEATHER ────────────────────────────────────────────
+const W_MAP={'0':'☀️','1':'🌤','2':'⛅','3':'☁️','45':'🌫','51':'🌦','61':'🌧','71':'❄️','80':'🌦','95':'⛈'};
+function wIcon(c){const k=Object.keys(W_MAP).sort((a,b)=>b-a).find(k=>c>=+k);return W_MAP[k]||'🌡';}
 async function loadWeather(){
   try{
-    if(!navigator.geolocation){return;}
-    navigator.geolocation.getCurrentPosition(async pos=>{
-      const {latitude:lat,longitude:lon}=pos.coords;
-      const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode&temperature_unit=fahrenheit`);
+    navigator.geolocation.getCurrentPosition(async p=>{
+      const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${p.coords.latitude}&longitude=${p.coords.longitude}&current=temperature_2m,weathercode&temperature_unit=fahrenheit`);
       const d=await r.json();
-      const temp=Math.round(d.current.temperature_2m);
-      const code=d.current.weathercode;
-      document.getElementById('w-temp').textContent=temp+'°F';
-      document.getElementById('w-icon').textContent=wIcon(code);
-    },()=>{});
+      document.getElementById('w-temp').textContent=Math.round(d.current.temperature_2m)+'°F';
+      document.getElementById('w-icon').textContent=wIcon(d.current.weathercode);
+    });
   }catch(e){}
 }
 
-// ── NAV ──────────────────────────────────────────────────
+// ── PHOTO HANDLING ─────────────────────────────────────
+function triggerPhotoInput(){document.getElementById('photo-input').click();}
+function handlePhoto(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    pendingPhotoB64=e.target.result;
+    const prev=document.getElementById('photo-preview');
+    const ph=document.getElementById('photo-placeholder');
+    const chg=document.getElementById('photo-change-btn');
+    prev.src=pendingPhotoB64;prev.style.display='block';
+    ph.style.display='none';chg.style.display='block';
+  };
+  reader.readAsDataURL(file);
+}
+function resetPhotoUpload(){
+  pendingPhotoB64=null;
+  document.getElementById('photo-preview').style.display='none';
+  document.getElementById('photo-preview').src='';
+  document.getElementById('photo-placeholder').style.display='flex';
+  document.getElementById('photo-change-btn').style.display='none';
+  document.getElementById('photo-input').value='';
+}
+
+// ── NAV ────────────────────────────────────────────────
 function goPage(pg,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+pg).classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
-  else document.getElementById('nav-'+pg).classList.add('active');
+  (btn||document.getElementById('nav-'+pg)).classList.add('active');
   renderAll();
 }
 
-// ── MODAL ────────────────────────────────────────────────
+// ── MODAL ──────────────────────────────────────────────
 function openModal(){
   document.getElementById('modal-ov').classList.add('open');
   switchTab('item',document.querySelector('.ftab'));
@@ -611,13 +711,9 @@ function openModal(){
 }
 function closeModal(){
   document.getElementById('modal-ov').classList.remove('open');
-  selSale=null;
-  ['s-sel','profit-prev','s-results'].forEach(id=>{
-    const el=document.getElementById(id);if(el)el.style.display='none';
-  });
-  ['f-name','f-price','f-cost','s-search','s-price','s-fee','s-ship'].forEach(id=>{
-    const el=document.getElementById(id);if(el)el.value='';
-  });
+  selSale=null;resetPhotoUpload();
+  ['s-sel','profit-prev','s-results'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none';});
+  ['f-name','f-price','f-cost','s-search','s-price','s-fee','s-ship'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
 }
 document.getElementById('modal-ov').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
 function switchTab(t,btn){
@@ -626,12 +722,8 @@ function switchTab(t,btn){
   document.getElementById('form-item').style.display=t==='item'?'block':'none';
   document.getElementById('form-sale').style.display=t==='sale'?'block':'none';
 }
-function pickEm(btn,em){
-  document.querySelectorAll('.em-btn').forEach(b=>b.classList.remove('picked'));
-  btn.classList.add('picked');pickedEm=em;
-}
 
-// ── ITEM ─────────────────────────────────────────────────
+// ── ITEM ───────────────────────────────────────────────
 function addItem(){
   const name=document.getElementById('f-name').value.trim();
   if(!name){toast('⚠️ Please enter an item name');return;}
@@ -639,24 +731,26 @@ function addItem(){
   const cost=parseFloat(document.getElementById('f-cost').value)||0;
   const cat=document.getElementById('f-cat').value;
   const status=document.getElementById('f-status').value;
-  items.push({id:Date.now(),name,price,cost,cat,status,emoji:pickedEm});
-  schedulSync();renderAll();closeModal();
-  toast('✨ Item added!');
+  items.push({id:Date.now(),name,price,cost,cat,status,photo:pendingPhotoB64||null});
+  scheduleSync();renderAll();closeModal();toast('✨ Item added!');
 }
 function deleteItem(id){
-  if(!confirm('Remove this item from ShayPop?'))return;
-  items=items.filter(i=>i.id!==id);schedulSync();renderAll();
-  toast('🗑 Item removed');
+  if(!confirm('Remove this item?'))return;
+  items=items.filter(i=>i.id!==id);scheduleSync();renderAll();toast('🗑 Removed');
 }
 
-// ── SALE ─────────────────────────────────────────────────
+// ── SALE ───────────────────────────────────────────────
 function searchInv(q){
   const res=document.getElementById('s-results');
   if(!q){res.style.display='none';return;}
   const m=items.filter(i=>i.name.toLowerCase().includes(q.toLowerCase())&&i.status!=='sold');
   if(!m.length){res.style.display='none';return;}
   res.style.display='block';
-  res.innerHTML=m.map(i=>`<div class="s-item" onclick="pickSaleItem(${i.id})">${i.emoji} ${i.name} — $${i.price.toFixed(2)}</div>`).join('');
+  res.innerHTML=m.map(i=>`
+    <div class="s-item" onclick="pickSaleItem(${i.id})">
+      ${i.photo?`<img class="s-item-thumb" src="${i.photo}">`:`<div class="s-item-thumb" style="display:flex;align-items:center;justify-content:center;font-size:16px;">${CAT_EM[i.cat]||'📦'}</div>`}
+      <span>${i.name} — $${i.price.toFixed(2)}</span>
+    </div>`).join('');
 }
 function pickSaleItem(id){
   selSale=id;
@@ -675,8 +769,7 @@ function calcProfit(){
   const fe=parseFloat(document.getElementById('s-fee').value)||0;
   const sh=parseFloat(document.getElementById('s-ship').value)||0;
   const profit=sp-fe-sh-it.cost;
-  const el=document.getElementById('profit-prev');
-  el.style.display='block';
+  const el=document.getElementById('profit-prev');el.style.display='block';
   document.getElementById('profit-val').textContent='$'+profit.toFixed(2);
   document.getElementById('profit-val').style.color=profit>=0?'var(--green)':'var(--pink)';
 }
@@ -688,22 +781,25 @@ function logSale(){
   const sh=parseFloat(document.getElementById('s-ship').value)||0;
   const date=document.getElementById('s-date').value||new Date().toISOString().split('T')[0];
   const profit=sp-fe-sh-it.cost;
-  sales.push({id:Date.now(),itemId:it.id,name:it.name,emoji:it.emoji,cat:it.cat,salePrice:sp,fee:fe,ship:sh,cost:it.cost,profit,date});
-  it.status='sold';
-  schedulSync();renderAll();closeModal();
+  sales.push({id:Date.now(),itemId:it.id,name:it.name,photo:it.photo||null,cat:it.cat,salePrice:sp,fee:fe,ship:sh,cost:it.cost,profit,date});
+  it.status='sold';scheduleSync();renderAll();closeModal();
   toast('💵 Sale logged! +$'+profit.toFixed(2));
 }
 
-// ── FILTER ───────────────────────────────────────────────
+// ── FILTER ─────────────────────────────────────────────
 function filterInv(f,btn){
-  curFilter=f;
-  document.querySelectorAll('.fchip').forEach(b=>b.classList.remove('active'));
+  curFilter=f;document.querySelectorAll('.fchip').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');renderInventory();
 }
 
-// ── RENDER ───────────────────────────────────────────────
+// ── RENDER ─────────────────────────────────────────────
 function renderAll(){renderHome();renderInventory();renderAnalytics();}
 function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
+function thumbHTML(photo,cat,cls,style=''){
+  if(photo)return`<img class="${cls}" src="${photo}" style="${style}">`;
+  return`<div class="${cls}" style="display:flex;align-items:center;justify-content:center;font-size:20px;${style}">${CAT_EM[cat]||'📦'}</div>`;
+}
 
 function renderHome(){
   const totalRev=sales.reduce((s,x)=>s+x.salePrice,0);
@@ -715,104 +811,52 @@ function renderHome(){
   document.getElementById('hero-pills').innerHTML=`
     <div class="hero-pill"><b>${listed}</b> listed</div>
     <div class="hero-pill"><b>${items.filter(i=>i.status==='sold').length}</b> sold</div>
-    <div class="hero-pill"><b>${margin}%</b> margin</div>
-  `;
+    <div class="hero-pill"><b>${margin}%</b> margin</div>`;
   document.getElementById('stat-grid').innerHTML=`
-    <div class="stat-card">
-      <div class="stat-icon" style="background:var(--purple-light);color:var(--purple);"><i class="fa-solid fa-dollar-sign"></i></div>
-      <div class="stat-val">$${fmt(totalProfit)}</div>
-      <div class="stat-lbl">Net Profit</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon" style="background:var(--green-light);color:var(--green);"><i class="fa-solid fa-bag-shopping"></i></div>
-      <div class="stat-val">${sales.length}</div>
-      <div class="stat-lbl">Total Sales</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon" style="background:var(--pink-light);color:var(--pink);"><i class="fa-solid fa-shirt"></i></div>
-      <div class="stat-val">${listed}</div>
-      <div class="stat-lbl">Active Listings</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon" style="background:#EDE9F8;color:var(--purple);"><i class="fa-solid fa-percent"></i></div>
-      <div class="stat-val">${margin}%</div>
-      <div class="stat-lbl">Profit Margin</div>
-    </div>
-  `;
+    <div class="stat-card"><div class="stat-icon" style="background:var(--purple-light);color:var(--purple);"><i class="fa-solid fa-dollar-sign"></i></div><div class="stat-val">$${fmt(totalProfit)}</div><div class="stat-lbl">Net Profit</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:var(--green-light);color:var(--green);"><i class="fa-solid fa-bag-shopping"></i></div><div class="stat-val">${sales.length}</div><div class="stat-lbl">Total Sales</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:var(--pink-light);color:var(--pink);"><i class="fa-solid fa-shirt"></i></div><div class="stat-val">${listed}</div><div class="stat-lbl">Active Listings</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#EDE9F8;color:var(--purple);"><i class="fa-solid fa-percent"></i></div><div class="stat-val">${margin}%</div><div class="stat-lbl">Profit Margin</div></div>`;
   renderBarChart('home-chart',false,'home-meta','chart-badge');
   const el=document.getElementById('recent-sales');
   const recent=[...sales].sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,5);
   if(!recent.length){el.innerHTML='<div style="text-align:center;padding:24px 0;color:var(--muted);font-size:13px;font-weight:600;">No sales yet — log your first one! ✨</div>';return;}
   el.innerHTML=recent.map(s=>`
     <div class="sale-row">
-      <div class="sale-em">${s.emoji}</div>
-      <div class="sale-info">
-        <div class="sale-name">${s.name}</div>
-        <div class="sale-meta">${new Date(s.date).toLocaleDateString('en-US',{month:'short',day:'numeric'})} · ${s.cat}</div>
-      </div>
-      <div class="sale-right">
-        <div class="sale-price">$${fmt(s.salePrice)}</div>
-        <div class="sale-profit">+$${fmt(s.profit)}</div>
-      </div>
-    </div>
-  `).join('');
+      ${s.photo?`<img class="sale-thumb" src="${s.photo}">`:`<div class="sale-thumb-placeholder">${CAT_EM[s.cat]||'📦'}</div>`}
+      <div class="sale-info"><div class="sale-name">${s.name}</div><div class="sale-meta">${new Date(s.date).toLocaleDateString('en-US',{month:'short',day:'numeric'})} · ${s.cat}</div></div>
+      <div class="sale-right"><div class="sale-price">$${fmt(s.salePrice)}</div><div class="sale-profit">+$${fmt(s.profit)}</div></div>
+    </div>`).join('');
 }
 
 function renderBarChart(chartId,showCost,metaId,badgeId){
   const now=new Date();
-  const months=Array.from({length:6},(_,i)=>{
-    const d=new Date(now.getFullYear(),now.getMonth()-5+i,1);
-    return{y:d.getFullYear(),m:d.getMonth(),lbl:MONTHS[d.getMonth()]};
-  });
+  const months=Array.from({length:6},(_,i)=>{const d=new Date(now.getFullYear(),now.getMonth()-5+i,1);return{y:d.getFullYear(),m:d.getMonth(),lbl:MONTHS[d.getMonth()]};});
   const data=months.map(mo=>{
-    const mo_sales=sales.filter(s=>{const d=new Date(s.date);return d.getFullYear()===mo.y&&d.getMonth()===mo.m;});
-    return{rev:mo_sales.reduce((s,x)=>s+x.salePrice,0),cost:mo_sales.reduce((s,x)=>s+(x.cost+x.fee+x.ship),0)};
+    const ms=sales.filter(s=>{const d=new Date(s.date);return d.getFullYear()===mo.y&&d.getMonth()===mo.m;});
+    return{rev:ms.reduce((s,x)=>s+x.salePrice,0),cost:ms.reduce((s,x)=>s+(x.cost+x.fee+x.ship),0)};
   });
   const maxV=Math.max(...data.map(d=>Math.max(d.rev,d.cost)),1);
   const isNow=mo=>mo.y===now.getFullYear()&&mo.m===now.getMonth();
   if(badgeId)document.getElementById(badgeId).textContent='$'+fmt(data[5].rev)+' this month';
   const el=document.getElementById(chartId);if(!el)return;
   if(showCost){
-    el.innerHTML=months.map((mo,i)=>`
-      <div class="bar-col">
-        <div style="display:flex;gap:3px;align-items:flex-end;width:100%;height:100%;">
-          <div class="bar-body" style="flex:1;height:${Math.max((data[i].rev/maxV)*100,3)}%;background:${isNow(mo)?'var(--purple)':'#DDD5F7'};"></div>
-          <div class="bar-body" style="flex:1;height:${Math.max((data[i].cost/maxV)*100,3)}%;background:${isNow(mo)?'var(--green)':'#BBE8D8'};"></div>
-        </div>
-        <div class="bar-lbl">${mo.lbl}</div>
-      </div>`).join('');
-  } else {
-    el.innerHTML=months.map((mo,i)=>`
-      <div class="bar-col">
-        <div class="bar-body" style="height:${Math.max((data[i].rev/maxV)*100,3)}%;background:${isNow(mo)?'var(--purple)':'var(--purple-soft)'};"></div>
-        <div class="bar-lbl" style="color:${isNow(mo)?'var(--purple)':'var(--muted)'};font-weight:${isNow(mo)?800:700};">${mo.lbl}</div>
-      </div>`).join('');
-    if(metaId){
-      const curRev=data[5].rev;const curProfit=data[5].rev-data[5].cost;
-      document.getElementById(metaId).innerHTML=`
-        <div class="cmi"><div class="cmi-val">$${fmt(curRev)}</div><div class="cmi-lbl">This Month</div></div>
-        <div class="cmi"><div class="cmi-val">$${fmt(curProfit)}</div><div class="cmi-lbl">Profit</div></div>
-        <div class="cmi"><div class="cmi-val">${data.filter(d=>d.rev>0).length}</div><div class="cmi-lbl">Active Months</div></div>
-      `;
-    }
+    el.innerHTML=months.map((mo,i)=>`<div class="bar-col"><div style="display:flex;gap:3px;align-items:flex-end;width:100%;height:100%;"><div class="bar-body" style="flex:1;height:${Math.max((data[i].rev/maxV)*100,3)}%;background:${isNow(mo)?'var(--purple)':'#DDD5F7'};"></div><div class="bar-body" style="flex:1;height:${Math.max((data[i].cost/maxV)*100,3)}%;background:${isNow(mo)?'var(--green)':'#BBE8D8'};"></div></div><div class="bar-lbl">${mo.lbl}</div></div>`).join('');
+  }else{
+    el.innerHTML=months.map((mo,i)=>`<div class="bar-col"><div class="bar-body" style="height:${Math.max((data[i].rev/maxV)*100,3)}%;background:${isNow(mo)?'var(--purple)':'var(--purple-soft)'}"></div><div class="bar-lbl" style="color:${isNow(mo)?'var(--purple)':'var(--muted)'};font-weight:${isNow(mo)?800:700};">${mo.lbl}</div></div>`).join('');
+    if(metaId){const cr=data[5].rev,cp=data[5].rev-data[5].cost;document.getElementById(metaId).innerHTML=`<div class="cmi"><div class="cmi-val">$${fmt(cr)}</div><div class="cmi-lbl">This Month</div></div><div class="cmi"><div class="cmi-val">$${fmt(cp)}</div><div class="cmi-lbl">Profit</div></div><div class="cmi"><div class="cmi-val">${data.filter(d=>d.rev>0).length}</div><div class="cmi-lbl">Active Months</div></div>`;}
   }
 }
 
 function renderInventory(){
   const filtered=curFilter==='all'?items:items.filter(i=>i.status===curFilter);
   const el=document.getElementById('inv-grid');if(!el)return;
-  if(!filtered.length){
-    el.innerHTML='<div class="empty-state"><div class="empty-icon">✨</div><div class="empty-text">No items here yet.<br>Tap + to add your first listing!</div></div>';return;
-  }
+  if(!filtered.length){el.innerHTML='<div class="empty-state"><div class="empty-icon">✨</div><div class="empty-text">No items here yet.<br>Tap + to add your first listing!</div></div>';return;}
   el.innerHTML=filtered.map(it=>`
     <div class="inv-card">
-      <div class="inv-img">${it.emoji}</div>
+      ${it.photo?`<img class="inv-img" src="${it.photo}">`:`<div class="inv-img-placeholder">${CAT_EM[it.cat]||'📦'}</div>`}
       <span class="inv-sbadge s-${it.status}">${it.status}</span>
-      <div class="inv-body">
-        <div class="inv-name">${it.name}</div>
-        <div class="inv-price">$${fmt(it.price)}</div>
-        <div class="inv-sub">${it.cat} · cost $${fmt(it.cost)}</div>
-      </div>
+      <div class="inv-body"><div class="inv-name">${it.name}</div><div class="inv-price">$${fmt(it.price)}</div><div class="inv-sub">${it.cat} · cost $${fmt(it.cost)}</div></div>
       <button class="inv-del" onclick="deleteItem(${it.id})"><i class="fa-solid fa-trash-can"></i></button>
     </div>`).join('');
 }
@@ -829,36 +873,30 @@ function renderAnalytics(){
     <div class="a-pill"><div class="a-pill-val">$${fmt(totalProfit)}</div><div class="a-pill-lbl">Total Profit</div></div>
     <div class="a-pill"><div class="a-pill-val">$${fmt(avgSale)}</div><div class="a-pill-lbl">Avg Sale</div></div>
     <div class="a-pill"><div class="a-pill-val">${sales.length}</div><div class="a-pill-lbl">Items Sold</div></div>
-    <div class="a-pill"><div class="a-pill-val" style="font-size:16px;">${bestCat}</div><div class="a-pill-lbl">Top Category</div></div>
-  `;
+    <div class="a-pill"><div class="a-pill-val" style="font-size:16px;">${bestCat}</div><div class="a-pill-lbl">Top Category</div></div>`;
   renderBarChart('ana-chart',true,null,null);
   const maxC=top[0]?top[0][1]:1;
   const cEl=document.getElementById('cat-breakdown');if(!cEl)return;
   if(!top.length){cEl.innerHTML='<div style="text-align:center;padding:20px;color:var(--muted);font-size:13px;font-weight:600;">No sales data yet ✨</div>';return;}
-  cEl.innerHTML=top.map(([cat,rev])=>`
-    <div class="cat-row">
-      <div class="cat-em">${CAT_EM[cat]||'📦'}</div>
-      <div class="cat-info">
-        <div class="cat-name">${cat}</div>
-        <div class="cat-track"><div class="cat-fill" style="width:${Math.round((rev/maxC)*100)}%"></div></div>
-      </div>
-      <div class="cat-amt">$${fmt(rev)}</div>
-    </div>`).join('');
+  cEl.innerHTML=top.map(([cat,rev])=>`<div class="cat-row"><div class="cat-em">${CAT_EM[cat]||'📦'}</div><div class="cat-info"><div class="cat-name">${cat}</div><div class="cat-track"><div class="cat-fill" style="width:${Math.round((rev/maxC)*100)}%"></div></div></div><div class="cat-amt">$${fmt(rev)}</div></div>`).join('');
 }
 
-// ── INIT ─────────────────────────────────────────────────
+// ── INIT ───────────────────────────────────────────────
 async function init(){
-  const now=new Date();
+  const now=new Date(),h=now.getHours();
   document.getElementById('topbar-date').textContent=now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-  const h=now.getHours();
   document.getElementById('greeting').textContent=h<12?'Good morning, Shay! ☀️':h<17?'Hey, Shay! 👋':'Evening, Shay! 🌙';
-  loadLocal();
+  loadLocal();renderAll();
   loadWeather();
-  // try cloud first
-  const cloudOk=await loadFromCloud();
-  if(!cloudOk)renderAll();
-  else renderAll();
-  setTimeout(()=>document.getElementById('splash').classList.add('gone'),1500);
+  // cloud load
+  const token=getToken();
+  if(token){const ok=await loadFromDrive();if(ok)renderAll();}
+  else{
+    const skipped=localStorage.getItem('sp3-cloud-skipped');
+    if(!skipped)document.getElementById('auth-modal').classList.add('open');
+  }
+  renderCloudBanner();
+  setTimeout(()=>document.getElementById('splash').classList.add('gone'),1400);
 }
 init();
 </script>
